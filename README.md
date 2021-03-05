@@ -21,6 +21,8 @@ verkehrsmengen_2020.csv
 ```
 
 ### Data Processing
+
+#### Filterung
 Filter zuerst alle Datenpunkte heraus, welche nicht auf Koeln zutreffen. Setze hierzu die `year` variable in `filter.exs` auf das Jahr welches du filtern möchtest. Danach führe folgendes aus:
 
 ```elixir
@@ -28,6 +30,8 @@ mix run filter.exs
 ```
 
 Dies wird eine `verkehrsmengen_koeln_YEAR.csv` Datei erstellen in welche nur noch die Datenpunkte für das Kölner Stadtgebiet beinhaltet.
+
+#### Konvertierung
 
 Konvertiere nun die `.csv`-Datei in eine `.geojson`-Datei indem du ein oder mehrere Jahre in der `years` Variable im `convert.exs` Skript definierst. Wenn du mehrere Jahre angibts werden die Datenpunkte für diese Jahre kombiniert und nur in einer neuen Datei ausgegeben.
 
@@ -50,10 +54,9 @@ Du musst leider noch das letzte Komma `,` aus der `.geojson` Datei löschen, son
 }
 ```
 
-Diese kannst du relativ einfach zu [Mapbox](https://www.mapbox.com/) hochladen. 
-Installiere hierzu zuerst die [Mapbox CLI](https://github.com/mapbox/mapbox-cli-py).
+#### Geojson zu Mapbox hochladen
 
-Danach, verändere die `YEAR_YEAR`-variable im folgenden Befehl und führe diesen aus (Einfach `ENTER` drücken).
+Die `.geojson`-Datei kannst du relativ einfach zu [Mapbox](https://www.mapbox.com/) hochladen und dort eine Karte damit bauen. Installiere hierzu zuerst die [Mapbox CLI](https://github.com/mapbox/mapbox-cli-py). Danach, verändere die `YEAR_YEAR`-variable im folgenden Befehl und führe diesen aus (Einfach `ENTER` drücken).
 
 ```
 mapbox upload verkehrsmengen verkehrsmengen_koeln_YEAR_YEAR.geojson
