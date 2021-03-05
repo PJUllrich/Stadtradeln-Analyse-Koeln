@@ -1,0 +1,5 @@
+*.csv
+*.geojson
+deps/
+_build/
+Stadtteil.zip
